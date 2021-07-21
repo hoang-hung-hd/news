@@ -18,6 +18,6 @@ class HomeController extends Controller
     {
         $categories = $this->categoryControll->getAll();
         $allNews = $this->newControll->getAll();
-        return view('layouts.app',compact('categories','allNews'));
+        return view('layouts.app');
     }
 }

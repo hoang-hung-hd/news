@@ -95,14 +95,19 @@
         </div>
     </nav>
     <div class="container">
-    @yield('content')
-    </div>
-    <table class="table">
-        @foreach($allNews as $new)
-                <td>{{$new->title}}</td>
-                <td>{{$new->content}}</td>
+        @yield('content')
+        <br><br>
+        @foreach($newAll as $new)
+            <ul>
+                <li>{{$new->title}}</li>
+                {{$new->content}}
+            </ul>
+
+
         @endforeach
-    </table>
+    </div>
+
+
 
 </div>
 

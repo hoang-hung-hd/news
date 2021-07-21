@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Category;
+use App\News;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,13 +19,13 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
-        //
+        $categories = Category::all();
+        $newAll = News::all();
+//        echo "<pre>";
+//        dd($newAll);
+        View::share('categories',$categories);
+        View::share('newAll',$newAll);
     }
 }
