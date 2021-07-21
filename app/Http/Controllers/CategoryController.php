@@ -36,8 +36,8 @@ class CategoryController extends Controller
     }
     public function findById($id)
     {
-        $data= $this->categorySer->findById($id);
-        return response()->json($data);
+        $category = $this->categorySer->findById($id);
+        return view('category.category',compact('category'));
     }
 
     public  function delete($id) {

@@ -25,7 +25,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">Home</a>
+            <a class="navbar-brand" href="{{route('home')}}">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">News <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('news.news')}}">News <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -46,7 +46,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($categories as $category)
-                                <a class="dropdown-item" href="#">{{$category->name}}</a>
+                                <a class="dropdown-item" href="{{route('tech.category',$category->id)}}">{{$category->name}}</a>
                             @endforeach
 
                         </div>
@@ -96,15 +96,6 @@
     </nav>
     <div class="container">
         @yield('content')
-        <br><br>
-        @foreach($newAll as $new)
-            <ul>
-                <li>{{$new->title}}</li>
-                {{$new->content}}
-            </ul>
-
-
-        @endforeach
     </div>
 
 

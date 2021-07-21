@@ -30,7 +30,7 @@ class TechnologyController extends Controller
     public function findByCategory($id)
     {
         $technologies = $this->technologySer->findByCategory($id);
-        return response()->json($technologies);
+        return view('technology.technology',compact('technologies'));
     }
 
     public function store(Request $request)

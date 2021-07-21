@@ -16,14 +16,14 @@ class NewsController extends Controller
     public  function getAll()
     {
         return $allNews = $this->newsSer->getAll();
-        return view('new.new',compact('allNews'));
+
 
     }
 
     public  function getNews()
     {
         $news = $this->newsSer->getNews();
-        return response()->json($news);
+        return view('new.new',compact('news'));
     }
 
     public function getHotNews()

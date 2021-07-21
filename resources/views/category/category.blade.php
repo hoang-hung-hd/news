@@ -6,9 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        @foreach ($categories as $category)
-                            <p>This is user {{ $category->name }}</p>
-                        @endforeach
+                       {{ $category->name }}
 
                     </div>
                 </div>
