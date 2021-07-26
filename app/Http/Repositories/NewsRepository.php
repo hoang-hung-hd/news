@@ -11,9 +11,14 @@ class NewsRepository {
        return  $news = News::all();
     }
 
+    public function getFirst()
+    {
+        return $news = News::orderBy('id','DESC')->limit(1)->get();
+    }
+
     public  function getNews()
     {
-         return $news = News::orderBy('id','DESC')->limit(3)->get();
+         return $news = News::orderBy('id','DESC')->limit(5)->get();
     }
 
     public function getHotNews()

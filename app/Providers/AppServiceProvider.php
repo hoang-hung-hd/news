@@ -12,12 +12,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-
-
-    public function __construct()
-    {
-    }
-
     public function register()
     {
     }
@@ -25,9 +19,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $categories = Category::all();
-        $newsAll = News::all();
+        $newFirst = News::orderBy('id','DESC')->limit(1)->get();
+        $newsHot = News::orderBy('views','DESC')->limit(5)->get();
+        $news = News::orderBy('id','DESC')->offset(1)->limit(3)->get();
+        $time = now();
         View::share('categories',$categories);
-        View::share('newsAll',$newsAll);
+        View::share('newsHot',$newsHot);
+        View::share('news',$news);
+        View::share('newFirst',$newFirst);
+        View::share('time',$time);
 
     }
 }

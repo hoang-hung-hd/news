@@ -15,9 +15,15 @@ class NewsController extends Controller
 
     public  function getAll()
     {
-        return $allNews = $this->newsSer->getAll();
+        $allNews = $this->newsSer->getAll();
         return view('new.new',compact('allNews'));
 
+    }
+
+    public  function getFirst()
+    {
+        $newFirst = $this->newsSer->getFirst();
+        return view('new.new',compact('newFirst'));
     }
 
     public  function getNews()

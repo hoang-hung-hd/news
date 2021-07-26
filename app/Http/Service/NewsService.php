@@ -24,6 +24,10 @@ class NewsService
     {
         return $this->newsRepo->getNews();
     }
+    public function getFirst()
+    {
+        return $this->newsRepo->getFirst();
+    }
 
     public function getHotNews()
     {
