@@ -3,9 +3,8 @@
 namespace App\Providers;
 
 use App\Category;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\NewsController;
 use App\News;
+use App\Technology;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -19,14 +18,25 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $categories = Category::all();
-        $newFirst = News::orderBy('id','DESC')->limit(1)->get();
-        $newsHot = News::orderBy('views','DESC')->limit(5)->get();
-        $news = News::orderBy('id','DESC')->offset(1)->limit(3)->get();
+        $data = [];
+        for ($i =0;$i < count($categories); $i++){
+                $cateId = $categories[$i]->id;
+                $technologies= Technology::where('category',$cateId)->get();
+                $data[$cateId]=$technologies;
+        }
+//        $data['category']=$categories;
+//        dd($data["category"]);
+        foreach ($data as $key=>$value )
+//        for($j=0;$j< count($data);$j ++)
+        {
+//            echo "<pre>";
+//            var_dump($value);
+        }
+
         $time = now();
         View::share('categories',$categories);
-        View::share('newsHot',$newsHot);
-        View::share('news',$news);
-        View::share('newFirst',$newFirst);
+        View::share('data',$data);
+//        View::share('technologies',$technologies);
         View::share('time',$time);
 
     }

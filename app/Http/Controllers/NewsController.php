@@ -22,20 +22,20 @@ class NewsController extends Controller
 
     public  function getFirst()
     {
-        $newFirst = $this->newsSer->getFirst();
-        return view('new.new',compact('newFirst'));
+        return $newFirst = $this->newsSer->getFirst();
+//        return view('new.new',compact('newFirst'));
     }
 
     public  function getNews()
     {
-        $news = $this->newsSer->getNews();
-        return response()->json($news);
+        return $news = $this->newsSer->getNews();
+//        return response()->json($news);
     }
 
     public function getHotNews()
     {
-        $hotNews = $this->newsSer->getHotNews();
-        return response()->json($hotNews);
+        return $hotNews = $this->newsSer->getHotNews();
+//        return response()->json($hotNews);
     }
 
     public  function findById($id)
